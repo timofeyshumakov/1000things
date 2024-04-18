@@ -1,0 +1,143 @@
+include mixins.pug
+doctype html
+html(lang="de")
+  head
+    meta(charset='UTF-8')
+    meta(name='format-detection' content="telephone=yes")
+    meta(name="robots" content="index, follow")
+    meta(name="keywords" content="travel, explore, vacation, explore, adventure, tourism, itinerary, airlines, hotels, backpacking, culture, sightseeing, holiday, remote, wanderlust, passport, tropical, accommodation, transportation, landmarks")
+    meta(name="description" content="Explore the world with our travel website! Discover breathtaking explores, find the best deals on flights and hotels, and plan your dream vacation. From relaxing beach getaways to thrilling adventures, let us help you create unforgettable memories. Book your next trip today!")
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='icon' type='image/x-icon' href='assets/img/logo/logo.svg')
+    title 1000things
+    link(rel='stylesheet' href='assets/css/style.css')
+    link(rel='stylesheet' href='assets/css/reset.css')
+  body 
+    .wraper
+      -var ancors = [];
+      -var menuLinks = ['Blog', 'Karte', 'Videos', 'Sponsoren & Partner','1000things.at'];
+      -menuLinks.forEach(function callback(val, index) {
+      -ancors[index] = val.replace(/[^a-zA-Z]/g, '').toLowerCase();
+      -});
+      -menuLinks.forEach((link, index)=> ancors[0]);
+      -sectionName= 'header'
+      -bemBlock = `${sectionName}__`
+      header(class=`${sectionName}` id=ancors[ancors.length])
+        -newBlock = 'container'
+        div(class=`${bemBlock}` + newBlock + ` ${newBlock}`)
+          -newBlock = 'menu'
+          nav(class=`${bemBlock}` + newBlock + ` ${newBlock}`)
+            ul(class=`${newBlock}` + '__list')
+              -i=0;
+              each index in menuLinks
+                li(class=`${newBlock}` + '__item')
+                  a(class=`${newBlock}` + '__link')(href=`#${ancors[i]}`)= index
+                  -i=i+1;
+          -newBlock= 'main-block'
+          -bemBlock = `${newBlock}__`
+          div(class='header__' + `${newBlock}`)(class=`${newBlock}`)
+            -newBlock = 'container'
+            div(class=`${bemBlock}` + newBlock)(class=newBlock)
+              -newBlock = 'imgs'
+              div(class=`${bemBlock}` + newBlock)
+                -newBlock = 'primary-img'
+                div(class=`${bemBlock}` + newBlock + '-container')
+                  +img(`${bemBlock}` + 'primary-img', 'main-block/primary-img', 'jpg', 'blog img', 'l',  0)
+                  div(class=`${bemBlock}` + 'decor')
+                +img(`${bemBlock}` + 'secondary-img', 'main-block/secondary-img', 'jpg', 'nature', 'l',  0)
+      main.main
+        -sectionName= 'blog'
+        -bemBlock = `${sectionName}__`
+        section(class='main__' + `${sectionName}`)(class=`${sectionName}`)
+          -newBlock = 'container'
+          div(class=`${bemBlock}` + newBlock)(class=newBlock)
+            h1(class=`${bemBlock}` + 'title') Blog
+            div(class=`${bemBlock}` + 'main-post')
+              +img(`${bemBlock}` + 'main-img', 'blog/main-post', 'jpg', 'Vien', 'l',  0)
+              -newBlock = 'card'
+              div(class=`${bemBlock}` + newBlock + ' ' + newBlock)
+                -bemBlock = `${newBlock}__`
+                h2(class=`${bemBlock}` + 'title') Etappe 33: Tulln an der Donau nach Wien
+                -newBlock = 'txt'
+                div(class=`${bemBlock}` + newBlock + ' ' + newBlock) Falls euch einmal jemand fragt, wie weit es von Bregenz nach Wien zu Fuß ist: 878,88 Kilometer. Diese Distanz bin ich in den vergangenen 47 Tagen gewandert, gelaufen, geschlendert, teilweise fast gekrochen. Aber ich habe es geschafft, ich habe einmal Österreich von West nach Ost durchquert. Ich durfte dabei wunderbare Begegnungen genießen, hatte die besten …
+                +read(bemBlock)
+            -bemBlock = `${sectionName}__`
+            -newBlock = 'posts'
+            div(class=`${sectionName}__` + newBlock)
+              each item in [ {title: 'People', subTitle : ' St Peter in der Au', img: 'post1', alt: 'St Peter in der Au', secondTitle: 'Woher kommen unsere Lebensmittel? Ein Besuch beim Zurück zum Ursprung Bauern – Teil 2', txt: '„Das ist die Helena, die Pia, die Muli und da drüben steht die Sissi“, Alois Lainerberger zeigt mir stolz seine Kühe. Alle 17 Bio-Rinder auf seinem Hof haben einen Namen: „manchmal sind sie gar nicht so leicht auseinander zu halten“, erklärt der Bio-Bauer. Gemeinsam mit seiner Frau Felicitas betreibt er den Hof in St. Peter …'}, {title: 'Tag 46 Tulln', subTitle : 'Tulln', img: 'post2', alt: 'Tulln', secondTitle: 'Etappe 31+32: Krems – Sachsendorf – Tulln', txt: 'Zu Beginn hatte ich noch keine Ahnung, was mich im Zuge der Wanderei erwartet. Jetzt weiß ich: die letzten sieben Wochen waren eines der größten Abenteuer, das ich in meinen 26 Jahren erleben durfte. Man kann den Vergleich mit einem bekannten Hollywoodfilm schon ziehen, das ganze Projekt war wie eine Schachtel Pralinen. Manche schmecken ungemein …'}, {title: 'Tag 44', subTitle : 'Krems', img: 'post3', alt: 'Krems', secondTitle: 'Etappe 30: Spitz an der Donau nach Krems', txt: 'Hier in Krems bin ich ja fast in einer Metropole gelandet, zumindest dieses Wochenende tut sich einiges. Ich bin in einer wahnsinnig netten WG mitten im Zentrum untergekommen, zwei Stockwerke unter mir tobt gerade das Kremser Marillenfest. Die Blasmusikkapelle marschiert durch die Straßen. Tausende Besucher wälzen sich durch die Innenstadt und feiern alles zum Thema …'}]
+                -newBlock = 'post'
+                -bemBlock = `${newBlock}__`
+                div(class=`${sectionName}__` + newBlock + ' ' + newBlock)
+                  div(class=`${bemBlock}` + 'title')
+                    h3(class=`${bemBlock}` + 'main-title')= item.title
+                    h4(class=`${bemBlock}` + 'sub-title')= item.subTitle
+                  +img(`${bemBlock}` + 'img', `blog/${item.img}`, 'jpg', item.alt, 'l',  0)
+                  h2(class=`${bemBlock}` + 'second-title')= item.secondTitle
+                  -newBlock = 'txt'
+                  div(class=`${bemBlock}` + newBlock + ' ' + newBlock)= item.txt
+                  +read(bemBlock)
+            -bemBlock = `${sectionName}__`
+            div(class=`${bemBlock}` + 'footer')
+              +actionButton(`${bemBlock}` + 'button','zum Blog')
+              div(class=`${bemBlock}` + 'decor')
+                -for(i = 0; i < 5; i++){
+                  div(class=`${bemBlock}` + 'decor-item')
+                -}
+        -sectionName= 'longread'
+        -bemBlock = `${sectionName}__`
+        section(class='main__' + `${sectionName}`)(class=`${sectionName}`)
+          -newBlock = 'container'
+          div(class=`${bemBlock}` + newBlock)(class=newBlock)
+            h2(class=`${bemBlock}` + 'title') Einmal quer durch Österreich – Meine Route
+            +img(`${bemBlock}` + 'button-img', 'longread/longread', 'jpg', 'read-more', 'l',  0)
+            -newBlock = 'card'
+            div(class=`${bemBlock}` + newBlock + ' ' + newBlock)
+              -bemBlock = `${newBlock}__`
+              h2(class=`${bemBlock}` + 'title') Einmal quer durch Österreich – Meine Route
+              -newBlock = 'txt'
+              div(class=`${bemBlock}` + newBlock + ' ' + newBlock) Jetzt geht es also tatsächlich in Kürze los! Ich starte ganz im Westen Österreichs in mein großes Sommerabenteuer: die 1000things Wanderei. Dabei werde ich über 900 Kilometer von Bregenz nach Wien zu Fuß gehen und dafür wohl knapp zwei Monate brauchen. Meine hochwissenschaftlichen Berechnungen haben ergeben, dass ich rund um den 19. Juli wieder in …
+              +read(bemBlock)
+        -sectionName= 'video'
+        -bemBlock = `${sectionName}__`
+        section(class='main__' + `${sectionName}`)(class=`${sectionName}`)
+          -newBlock = 'container'
+          div(class=`${bemBlock}` + newBlock)(class=newBlock)
+            h2(class=`${bemBlock}` + 'title') Woche 7 der Wanderei im Video
+            div(class=`${bemBlock}` + 'sub-title') Sponsored by Zurück zum Ursprung
+            div(class=`${bemBlock}` + 'img-container')
+              +img(`${bemBlock}` + 'img', 'video/video', 'jpg', 'video', 'l',  0)
+              button(class=`${bemBlock}` + 'button')
+                span(class=`${bemBlock}` + 'button-txt') Video abspielen
+                +img(`${bemBlock}` + 'button-img', 'arrows/video-arrow', 'svg', 'read-more', 'l')
+            button(class=`${bemBlock}` + 'to-videos')
+              span(class=`${bemBlock}` + 'to-videos-txt') zum allen Videos
+              +img(`${bemBlock}` + 'to-videos-img' + ' arrow', 'arrows/arrow', 'svg', 'to videos', 'l')
+        -sectionName= 'map'
+        -bemBlock = `${sectionName}__`
+        section(class='main__' + `${sectionName}`)(class=`${sectionName}`)
+          -newBlock = 'container'
+          div(class=`${bemBlock}` + newBlock)(class=newBlock)
+            +img(`${bemBlock}` + 'img','map/map', 'jpg', 'map', 'l',  0)
+            div(class=`${bemBlock}` + 'descr')
+              h2(class=`${bemBlock}` + 'title') Die Route
+              div(class=`${bemBlock}` + 'txt') Check jederzeit meine Location auf der 900km langen Wanderei durch Österreich
+              +linkButton(`${bemBlock}` + 'button', 'zur Karte',"#","_blank") 
+      footer.footer
+        -sectionName= 'footer'
+        -bemBlock = `${sectionName}__`
+        -newBlock = 'container'
+        div(class=`${bemBlock}` + `${newBlock}`)(class=`${newBlock}`)
+          -newBlock = 'logo'
+          +img(`${bemBlock}` + `${newBlock}`, 'logo/logo', 'svg', 'logo', 'l',  0)
+          -newBlock = 'main'
+          div(class=`${bemBlock}` + `${newBlock}`)
+            -newBlock = 'full-logo'
+            +img(`${bemBlock}` + `${newBlock}`, 'logo/full-logo', 'svg', 'logo', 'l',  0)
+            -menuLinks = ["Blog","Karte","Videos","1000things.at","Impressum","Datenschutzerklärung"]
+            +menu(menuLinks)
+            -newBlock = "socials"
+            div(class=`${bemBlock}` + `${newBlock}`)
+              -newBlock = "social"
+              -socials = ['instagram','facebook','youtube']
+              each index in socials
+                +img(`${bemBlock}` + `${newBlock}`, 'socials/' + index, 'svg', index, 'l',  0)

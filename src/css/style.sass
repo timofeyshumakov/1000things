@@ -1,0 +1,529 @@
+@import "vars.sass"
+
+/*#fonts*/
+@font-face
+  font-style: medium
+  font-weight: 400
+  font-display: swap
+  font-family: "SourceSansPro-Regular"
+  src: local("SourceSansPro-Regular")
+  src: url("../fonts/SourceSansPro-Regular.woff2") format("woff2")
+  src: url("../fonts/SourceSansPro-Regular.woff") format("woff")
+  src: url("../fonts/SourceSansPro-Regular.ttf") format("ttf")
+
+@font-face
+  font-style: medium
+  font-weight: 400
+  font-display: swap
+  font-family: "CrimsonText-Regular"
+  src: local("CrimsonText-Regular")
+  src: url("../fonts/CrimsonText-Regular.woff2") format("woff2")
+  src: url("../fonts/CrimsonText-Regular.woff") format("woff")
+  src: url("../fonts/CrimsonText-Regular.ttf") format("ttf")
+
+/*#scrollbar*/
+::-webkit-scrollbar-track
+  background-color: $light-gray
+
+::-webkit-scrollbar-thumb
+  border-radius: 0.5rem
+  background-color: $dark-gray
+
+::-webkit-scrollbar-thumb:active
+  background-color: $yellow
+  border: 0.1rem solid $yellow
+
+::-webkit-scrollbar
+  width: 0.6rem
+  background-color: $light-gray
+
+/*#common*/
+img
+  width: 100%
+
+.arrow
+  width: 0.9rem
+  height: 0.9rem
+
+body
+  font-weight: 400
+  color: $black
+
+h1
+  font-size: 1.57rem
+  line-height: 114%
+  color: $black
+
+h3
+  font-size: 0.61rem
+  line-height: 145%
+  text-transform: uppercase
+  color: $black
+  display: inline
+
+h4
+  font-size: 0.78rem
+  line-height: 114%
+  text-transform: uppercase
+  display: inline
+
+h2
+  font-size: 1.57rem
+  line-height: 114%
+  color: $black
+
+.txt
+  font: 400 1.11rem /1.6 $ff2
+
+.read-more
+  display: flex
+  flex-wrap: nowrap
+  gap: 1rem
+  align-items: center
+  background: transparent
+
+.read-more__
+
+  &txt
+    font: 400 1.11rem /1.2 $ff2
+
+button:not(.read-more)
+  font: 400 1rem /1.11 $ff2
+  display: flex
+  padding: 1rem 1.33rem
+  color: $white
+  background: $dark-gray
+  gap: 1.11rem
+  flex-wrap: nowrap
+  align-items: center
+
+li
+  position: relative
+
+li a
+  transition: $animation
+  text-decoration: none
+  border-bottom: 1px solid transparent
+  padding-bottom: 0.2rem
+  color: $black
+  text-transform: uppercase
+  font-size: 1rem
+  letter-spacing: 0.02rem
+
+li a:hover
+  color: $black
+  border-bottom: 1px solid $black
+
+li a:after 
+  content: ""
+  position: absolute
+
+.container
+  display: flex
+  flex-direction: column
+  padding: 0 2rem
+  margin: 0 auto
+  box-sizing: content-box
+  max-width: 66.67rem
+  justify-content: space-between
+  align-items: center
+
+.post
+  display: grid
+  max-width: 19.83rem
+  position: relative
+  gap: 1.8rem
+
+.post__
+
+  &title
+    padding: 1rem 1.5rem
+    width: 8.9rem
+    align-self: center
+    justify-self: center
+    background: $dark-gray
+    position: absolute
+    top: -2rem
+    display: flex
+    flex-direction: column
+
+  &second-title
+    padding-bottom: 1.5rem
+
+.card
+  display: flex
+  flex-direction: column
+  max-width: 26.67rem
+  padding: 1.8rem
+  padding-top: 3rem
+  gap: 1.2rem
+
+.card__
+
+  &title
+    padding-bottom: 2rem
+
+.menu__
+
+  &list
+    display: flex
+    flex-direction: row
+    gap: 1.33rem
+
+.header__
+
+  &menu
+    display: flex
+    min-height: 9rem
+    align-items: center
+    justify-content: center
+    margin-left: 23%
+    padding-bottom: 1.5rem
+
+.main-block__
+
+  &container
+    position: relative
+    justify-content: center
+
+  &primary-img-container
+    position: absolute
+    z-index: 1
+    top: -0.67rem
+
+  &imgs
+    display: flex
+    justify-content: center
+
+  &decor
+    border-radius: 1.67rem
+    width: 1.67rem
+    height: 1.67rem
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.34)
+    background: $orange
+    position: absolute
+    top: -0.6rem
+    right: -0.8rem
+    z-index: 2
+
+  &primary-img
+    height: 28rem
+
+  &secondary-img
+    height: 30.28rem
+
+
+
+.blog__
+
+  &card
+    position: absolute
+    background: $white
+
+  &main-post
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    padding-bottom: 5.9rem
+
+  &title
+    padding: 5rem 0
+
+  &posts
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 1.8rem
+    row-gap: 3.8rem
+
+  &post:nth-child(1) .post__title
+    background: $yellow
+
+  &footer
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 1.33rem
+    padding-top: 8.8rem
+
+  &decor
+    display: flex
+    flex-direction: column
+    gap: 0.67rem
+
+  &decor-item
+    width: 0.44rem
+    height: 0.44rem
+    background: $light-gray
+
+.longread__
+
+  &container
+    flex-direction: row
+    padding: 4rem 1.8rem
+    justify-content: center
+
+  &card
+    padding-right: 0
+    max-width: 25.5rem
+    background: $light-gray
+
+  &title
+    max-width: 13.9rem
+    margin-right: 1rem
+
+.video
+  background: $yellow
+
+.video .video__button
+  border-radius: 1.78rem
+  background: $yellow
+  position: absolute
+
+.video .video__to-videos
+  padding: 0
+  background: transparent
+  font-family: $ff2
+  color: $black
+  align-self: flex-end
+  margin: 0.9rem 2rem 0
+
+.video__
+
+  &img
+    padding: 0 2rem
+
+  &container
+    padding: 4rem 0
+    gap: 2rem
+    margin-bottom: 2.67rem
+
+  &img-container
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+
+  &sub-title
+    font-size: 0.78rem
+    line-height: 229%
+    text-transform: uppercase
+    color: $white
+
+  &button-img
+    width: 0.89rem
+    height: 0.89rem
+
+.map__
+
+  &container
+    position: relative
+    padding: 0
+
+  &img
+    width: 100%
+    height: 25.83rem
+
+  &descr
+    position: absolute
+    bottom: 21%
+    width: 90%
+    display: flex
+    gap: 0.5rem
+    flex-direction: column
+    align-items: center
+    text-align: center
+
+
+  &title
+    font-size: 1.44rem
+    line-height: 123%
+
+  &txt
+    font-size: 1.4rem
+    line-height: 128%
+    padding-bottom: 2rem
+
+
+.footer
+  background: $light-gray
+  padding: 8rem 0 4.33rem
+
+.footer__
+
+  &container
+    display: flex
+    flex-direction: column
+    gap: 1.33rem
+
+  &main
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 2rem
+    row-gap: 1.33rem
+
+  &socials
+    display: flex
+    gap: 1.11rem
+
+  &social
+    width: 1.11rem
+    height: 1.11rem
+
+  &logo
+    width: 6.22rem
+    height: 2rem
+
+  &full-logo
+    width: 6.61rem
+    height: 6.22rem
+
+  &menu
+    display: grid
+    width: 100%
+    margin: 0 1.11rem
+
+.menu__list
+  justify-self: end
+
+@media screen and (max-width: 70rem)
+
+  .footer__
+
+    &menu .menu__list
+      gap: 1rem
+
+    &footer__main
+      padding: 0
+
+@media screen and (max-width: 62rem) /* ipad*/
+  .blog__
+
+    &footer
+      padding-top: 5rem
+
+    &title
+      padding: 3rem 0
+
+    &posts
+      grid-template-columns: repeat(1, 1fr)
+
+  .longread__
+    
+    &container
+      flex-direction: column
+      row-gap: 2rem
+
+  .main-block__
+
+    &container
+      padding: 0
+
+    &primary-img-container
+      position: relative
+
+    &primary-img
+      height: 100%
+
+    &secondary-img
+      display: none
+
+  .footer__
+ 
+    &main
+      flex-direction: column
+
+    &footer__menu
+      justify-content: center
+
+@media screen and (min-width: 62rem)
+
+  body
+    font-size: 18px
+
+  .menu__list
+    display: flex
+
+@media screen and (max-width: 47.9rem) /* tablet*/
+  .post__
+
+    &second-title
+      padding-bottom: 0
+
+  body
+    font-size: 16px
+
+  .map__
+
+    &descr
+      height: 100%
+      bottom: 0
+      justify-content: center
+
+  .menu__list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    text-align: center
+    align-items: center
+
+  .header__
+
+    &menu
+      margin: 0
+
+  .blog__
+
+    &card
+      position: static
+
+    &main-post
+      flex-direction: column
+
+@media screen and (max-width: 30rem) /* fablet*/
+  .card__
+
+    &title
+      padding-bottom: 0
+
+  .footer
+    padding: 4rem 0 2.11rem
+
+  .longread__
+
+    &card
+      padding: 2rem 1rem
+
+  .blog__
+
+    &footer
+      padding: 2rem 0 1rem
+
+  .container:not(.map__container, .video__container)
+    padding: 0 1rem
+
+  .menu__list
+    padding: 1rem 0
+    grid-template-columns: repeat(1, 1fr)
+    width: 100%
+
+  .map__
+
+    &descr
+      position: static
+      padding: 1rem
+
+    &txt
+      padding-bottom: 0
+
+  .video__
+
+    &img
+      padding: 0
+
+    &container
+      padding: 1rem
+      gap: 1rem
+
+    &title
+      text-align: center

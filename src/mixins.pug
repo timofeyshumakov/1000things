@@ -1,0 +1,72 @@
+mixin img(className,src,format,alt,loading,tabIndex)
+  if format!== 'svg'
+    picture
+      source(srcset=`assets/img/${src}.webp` type="image/webp")
+      if alt!==' '
+        if tabIndex === 0
+          if loading === 'l'
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=`${alt}` title=`${alt}` loading="lazy" tabindex="0")
+          else
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=`${alt}` title=`${alt}` tabindex="0")
+        else
+          if loading === 'l'
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=`${alt}` title=`${alt}` loading="lazy")
+          else
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=`${alt}` title=`${alt}`)
+      else
+        if tabIndex === 0
+          if loading === 'l'
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=" " loading="lazy" tabindex="0")
+          else
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=" " tabindex="0")
+        else
+          if loading === 'l'
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=" " loading="lazy")
+          else
+            img(class=`${className}` src=`assets/img/${src}.${format}` alt=" ")
+  else
+    if alt!==' '
+      if tabIndex === 0
+        if loading === 'l'
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=`${alt}` title=`${alt}` loading="lazy" tabindex="0")
+        else
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=`${alt}` title=`${alt}` tabindex="0")
+      else
+        if loading === 'l'
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=`${alt}` title=`${alt}` loading="lazy")
+        else
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=`${alt}` title=`${alt}`)
+    else
+      if tabIndex === 0
+        if loading === 'l'
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=" " loading="lazy" tabindex="0")
+        else
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=" " tabindex="0")
+      else
+        if loading === 'l'
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=" " loading="lazy")
+        else
+          img(class=`${className}` src=`assets/img/${src}.svg` alt=" ")
+mixin linkButton(className,caption,link,target)
+  form(action=`${link}`  target=`${target}`) 
+    button(class=`${className}`)= caption
+mixin actionButton(className,caption,id)
+  if id !== ' '
+    button(class=`${className}` id= id)= caption
+  else
+    button(class=`${className}`)= caption
+mixin menu(links)
+  -newBlock = 'menu'
+  nav(class=`${bemBlock}` + newBlock + ` ${newBlock}`)
+    ul(class=`${newBlock}` + '__list')
+      -i=0;
+      each index in menuLinks
+        li(class=`${newBlock}` + '__item')
+          a(class=`${newBlock}` + '__link')(href=`#${ancors[i]}`)= index
+          -i=i+1;
+mixin read(bemBlock)
+  -newBlock = 'read-more'
+  button(class=`${bemBlock}` + newBlock + ' ' + newBlock)
+    -bemBlock = `${newBlock}__`
+    span(class=`${bemBlock}` + 'txt') weiterlesen
+    +img(`${bemBlock}` + 'img' + ' arrow', 'arrows/arrow', 'svg', 'read-more', 'l')
