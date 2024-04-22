@@ -580,7 +580,7 @@ li a:after {
         flex-direction: column;
     }
 
-    .footer__footer__menu {
+    .footer__menu {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
@@ -689,4 +689,18 @@ li a:after {
     .video__title {
         text-align: center;
     }
+}
+
+button:hover {
+    -webkit-transform: scale(1.08);
+    -ms-transform: scale(1.08);
+    transform: scale(1.08);
+    -webkit-filter: invert(0.1);
+    filter: invert(0.1);
+}
+
+.footer__social:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }
